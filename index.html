@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tailinekar | Something Amazing Is Coming</title>
+  <meta name="description" content="Tailinekar is crafting something extraordinary. Stay tuned and be the first to know when we launch.">
+  <meta name="keywords" content="Tailinekar, luxury, agency, coming soon, modern startup, design">
+
+  <!-- Favicon -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>✨</text></svg>">
+
+  <!-- Google Fonts: Plus Jakarta Sans, Outfit & Montserrat -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Outfit:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <!-- Bootstrap 5 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
+  <!-- Bootstrap Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+  <!-- Custom Stylesheet -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- Fullscreen Hero Background & Effects -->
+  <div class="hero-bg-container">
+    <div class="hero-bg-image" id="hero-background-image"></div>
+    <div class="hero-bg-overlay"></div>
+  </div>
+
+  <!-- Ambient Glowing Orbs -->
+  <div class="glow-orb glow-orb-top"></div>
+  <div class="glow-orb glow-orb-bottom"></div>
+
+  <!-- Ambient Particle Canvas -->
+  <canvas id="particle-canvas"></canvas>
+
+  <!-- STICKY NAVBAR -->
+  <header class="custom-header" id="main-header">
+    <div class="container">
+      <nav class="navbar navbar-expand-lg navbar-dark p-0">
+        
+        <!-- Brand Logo / Name -->
+        <a class="brand-wrapper" href="#home">
+          <div class="brand-symbol">T</div>
+          <span class="brand-name">Tailinekar</span>
+        </a>
+
+        <!-- Mobile Toggler -->
+        <button class="navbar-toggler navbar-toggler-custom d-lg-none" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMenu" aria-controls="navbarMenu" aria-expanded="false" aria-label="Toggle navigation">
+          <i class="bi bi-list fs-4"></i>
+        </button>
+
+        <!-- Navigation Links -->
+        <div class="collapse navbar-collapse justify-content-end" id="navbarMenu">
+          <ul class="nav-links-menu my-3 my-lg-0 me-lg-4">
+            <li><a href="#home" class="nav-item-link active">Home</a></li>
+            <li><a href="#about" class="nav-item-link">About</a></li>
+            <li><a href="#contact" class="nav-item-link">Contact</a></li>
+          </ul>
+
+          <!-- Social Icons -->
+          <div class="d-flex align-items-center gap-2">
+            <a href="https://twitter.com" target="_blank" rel="noopener" class="header-social-btn" title="Twitter / X" aria-label="Twitter">
+              <i class="bi bi-twitter-x"></i>
+            </a>
+            <a href="https://instagram.com" target="_blank" rel="noopener" class="header-social-btn" title="Instagram" aria-label="Instagram">
+              <i class="bi bi-instagram"></i>
+            </a>
+            <a href="https://linkedin.com" target="_blank" rel="noopener" class="header-social-btn" title="LinkedIn" aria-label="LinkedIn">
+              <i class="bi bi-linkedin"></i>
+            </a>
+          </div>
+        </div>
+
+      </nav>
+    </div>
+  </header>
+
+  <!-- 1. HERO SECTION (CENTERED COMING SOON) -->
+  <section class="hero-section" id="home">
+    <div class="container">
+      <div class="hero-center-box">
+        
+        <!-- Status Badge -->
+        <div>
+          <div class="status-pill-badge">
+            <span class="badge-glow-dot"></span>
+            <span>Tailinekar &bull; Official Reveal</span>
+          </div>
+        </div>
+
+        <!-- Main Typography with Typewriter Effect & Cursor -->
+        <h1 class="hero-headline-main">
+          <span id="typewriter-text"></span><span class="typewriter-cursor">|</span>
+        </h1>
+        <h2 class="hero-subheadline-styled">Something amazing is coming.</h2>
+
+        <!-- Description -->
+        <p class="hero-description-text">
+          We’re working on something exciting. Stay tuned and be the first to know when we launch.
+        </p>
+
+        <!-- Functional Glassmorphism Countdown -->
+        <div class="countdown-grid" id="countdown-timer">
+          
+          <div class="countdown-card">
+            <div class="countdown-digit" id="countdown-days">00</div>
+            <div class="countdown-unit">DAYS</div>
+          </div>
+
+          <div class="countdown-card">
+            <div class="countdown-digit" id="countdown-hours">00</div>
+            <div class="countdown-unit">HOURS</div>
+          </div>
+
+          <div class="countdown-card">
+            <div class="countdown-digit" id="countdown-minutes">00</div>
+            <div class="countdown-unit">MINUTES</div>
+          </div>
+
+          <div class="countdown-card">
+            <div class="countdown-digit" id="countdown-seconds">00</div>
+            <div class="countdown-unit">SECONDS</div>
+          </div>
+
+        </div>
+
+        <!-- Email Subscription Form -->
+        <div class="subscription-wrapper">
+          <form id="subscription-form" class="subscription-pill-form" novalidate>
+            <div class="form-field-icon">
+              <i class="bi bi-envelope-paper-heart"></i>
+            </div>
+            <input 
+              type="email" 
+              id="email-input" 
+              class="email-field-input" 
+              placeholder="Enter your email address" 
+              required 
+              aria-label="Email address"
+            >
+            <button type="submit" id="btn-submit-notify" class="btn-notify-action">
+              <span>Notify Me</span>
+              <i class="bi bi-arrow-right-circle-fill"></i>
+            </button>
+          </form>
+          
+          <div class="privacy-note">
+            <i class="bi bi-shield-fill-check"></i>
+            <span>No spam, ever. 100% privacy guaranteed. Unsubscribe anytime.</span>
+          </div>
+        </div>
+
+        <!-- Scroll Down Indicator -->
+        <div class="scroll-indicator">
+          <a href="#about">
+            <span>Explore More</span>
+            <i class="bi bi-chevron-double-down scroll-arrow-anim"></i>
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- 2. ABOUT SECTION (DIRECTLY BELOW) -->
+  <section class="page-section" id="about">
+    <div class="container">
+      
+      <!-- Section Header -->
+      <div class="section-header">
+        <span class="section-tag">Who We Are</span>
+        <h2 class="section-title">Redefining Excellence with <span class="text-gradient-gold">Tailinekar</span></h2>
+        <p class="section-desc">
+          Born at the intersection of haute aesthetics and cutting-edge craft, Tailinekar is on a mission to elevate how the world experiences modern luxury.
+        </p>
+      </div>
+
+      <!-- Feature Cards Grid -->
+      <div class="row g-4">
+        
+        <div class="col-md-4">
+          <div class="glass-feature-card">
+            <div class="card-icon-box">
+              <i class="bi bi-gem"></i>
+            </div>
+            <h3 class="card-title">Bespoke Design</h3>
+            <p class="card-text">
+              Every detail is thoughtfully curated to inspire. We blend timeless craftsmanship with contemporary precision.
+            </p>
+          </div>
+        </div>
+
+        <div class="col-md-4">
+          <div class="glass-feature-card">
+            <div class="card-icon-box">
+              <i class="bi bi-lightning-charge-fill"></i>
+            </div>
+            <h3 class="card-title">Pure Innovation</h3>
+            <p class="card-text">
+              Pioneering new standards that empower creators and connoisseurs with unparalleled digital experiences.
+            </p>
+          </div>
+        </div>
+
+        <div class="col-md-4">
+          <div class="glass-feature-card">
+            <div class="card-icon-box">
+              <i class="bi bi-patch-check-fill"></i>
+            </div>
+            <h3 class="card-title">Unrivaled Quality</h3>
+            <p class="card-text">
+              We hold every creation to the highest benchmark of perfection, ensuring an extraordinary encounter every time.
+            </p>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Story Banner Box -->
+      <div class="about-story-box">
+        <div class="row align-items-center">
+          <div class="col-lg-8">
+            <h3 class="fw-bold mb-3" style="font-family: var(--font-heading);">The Tailinekar Vision</h3>
+            <p class="text-secondary mb-0" style="font-size: 1.05rem; line-height: 1.8;">
+              "We believe true sophistication lies in the balance between bold expression and refined minimalism. Tailinekar was created to bring something truly transformative into the world."
+            </p>
+          </div>
+          <div class="col-lg-4 text-lg-end mt-4 mt-lg-0">
+            <a href="#contact" class="btn btn-notify-action px-4 py-3">
+              <span>Partner With Us</span>
+              <i class="bi bi-arrow-right"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- 3. CONTACT SECTION (DIRECTLY BELOW) -->
+  <section class="page-section" id="contact">
+    <div class="container">
+      
+      <!-- Section Header -->
+      <div class="section-header">
+        <span class="section-tag">Get In Touch</span>
+        <h2 class="section-title">Let’s Create Together</h2>
+        <p class="section-desc">
+          Have an inquiry, press question, or partnership proposal? Reach out directly and our concierge team will respond promptly.
+        </p>
+      </div>
+
+      <div class="row align-items-stretch">
+        
+        <!-- Contact Info Cards -->
+        <div class="col-lg-5">
+          
+          <div class="contact-info-card">
+            <div class="contact-icon">
+              <i class="bi bi-geo-alt-fill"></i>
+            </div>
+            <div>
+              <h6 class="fw-bold mb-1 text-white">Global Headquarters</h6>
+              <span class="text-secondary small">5th Avenue, Suite 1400, New York, NY</span>
+            </div>
+          </div>
+
+          <div class="contact-info-card">
+            <div class="contact-icon">
+              <i class="bi bi-envelope-at-fill"></i>
+            </div>
+            <div>
+              <h6 class="fw-bold mb-1 text-white">Direct Email</h6>
+              <span class="text-secondary small">contact@tailinekar.com</span>
+            </div>
+          </div>
+
+          <div class="contact-info-card">
+            <div class="contact-icon">
+              <i class="bi bi-telephone-fill"></i>
+            </div>
+            <div>
+              <h6 class="fw-bold mb-1 text-white">Direct Line</h6>
+              <span class="text-secondary small">+1 (800) 555-TAIL</span>
+            </div>
+          </div>
+
+          <div class="contact-info-card">
+            <div class="contact-icon">
+              <i class="bi bi-clock-history"></i>
+            </div>
+            <div>
+              <h6 class="fw-bold mb-1 text-white">Operating Hours</h6>
+              <span class="text-secondary small">Monday – Friday: 9am – 6pm EST</span>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Contact Form Box -->
+        <div class="col-lg-7">
+          <div class="contact-form-container">
+            <h4 class="fw-bold mb-4" style="font-family: var(--font-heading);">Send a Message</h4>
+            
+            <form id="main-contact-form" novalidate>
+              <div class="row g-3">
+                <div class="col-md-6">
+                  <label for="contact-name" class="form-label small text-secondary">Your Name</label>
+                  <input type="text" class="form-control custom-input" id="contact-name" placeholder="Alexander Wright" required>
+                </div>
+                <div class="col-md-6">
+                  <label for="contact-email" class="form-label small text-secondary">Your Email</label>
+                  <input type="email" class="form-control custom-input" id="contact-email" placeholder="alex@example.com" required>
+                </div>
+                <div class="col-12">
+                  <label for="contact-subject" class="form-label small text-secondary">Subject</label>
+                  <input type="text" class="form-control custom-input" id="contact-subject" placeholder="Partnership & Collaboration Inquiry" required>
+                </div>
+                <div class="col-12">
+                  <label for="contact-message" class="form-label small text-secondary">Message</label>
+                  <textarea class="form-control custom-input" id="contact-message" rows="4" placeholder="Tell us how we can collaborate..." required></textarea>
+                </div>
+                <div class="col-12 mt-4">
+                  <button type="submit" id="btn-submit-contact" class="btn btn-notify-action w-100 py-3 justify-content-center">
+                    <span>Send Message</span>
+                    <i class="bi bi-send-fill ms-2"></i>
+                  </button>
+                </div>
+              </div>
+            </form>
+
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="custom-footer">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
+          <a href="#home" class="footer-logo">TAILINEKAR</a>
+          <p class="text-secondary small mb-0">
+            &copy; 2026 <strong>Tailinekar</strong>. All rights reserved. Crafted with distinction.
+          </p>
+        </div>
+        <div class="col-md-6">
+          <ul class="footer-links-list justify-content-center justify-content-md-end">
+            <li><a href="#home" class="footer-link-item">Home</a></li>
+            <li><a href="#about" class="footer-link-item">About</a></li>
+            <li><a href="#contact" class="footer-link-item">Contact</a></li>
+            <li><a href="#" class="footer-link-item">Privacy Policy</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- TOAST NOTIFICATION CONTAINER -->
+  <div class="custom-toast-container">
+    <div id="notification-toast" class="toast toast-glass align-items-center" role="alert" aria-live="assertive" aria-atomic="true">
+      <div class="d-flex p-2">
+        <div class="toast-body" id="toast-message-body">
+          <i class="bi bi-check-circle-fill text-success me-2"></i> Thank you! You're on the VIP list.
+        </div>
+        <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bootstrap 5 JS Bundle -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+
+  <!-- Custom JavaScript -->
+  <script src="js/script.js"></script>
+
+</body>
+</html>
