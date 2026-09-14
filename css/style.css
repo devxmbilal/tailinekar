@@ -1,65 +1,262 @@
+/* ==========================================================================
+   TIA LINEKAR — FULLSCREEN RESPONSIVE EDITORIAL DESIGN
+   ========================================================================== */
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-body {
-  min-height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: #0d0e12;
-  font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
-  color: #ffffff;
-  padding: 30px 20px;
-}
-
-.container {
-  text-align: center;
-  max-width: 440px;
+html, body {
   width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background-color: #15110e;
+  font-family: 'Montserrat', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-.brand-name {
-  font-size: 2.2rem;
-  font-weight: 800;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: #ffffff;
-  margin-bottom: 6px;
+/* ==========================================================================
+   FULLSCREEN RESPONSIVE BACKGROUND IMAGE
+   ========================================================================== */
+
+.bg-wrapper {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 1;
+  overflow: hidden;
 }
 
-.coming-soon-text {
-  font-size: 1.1rem;
-  font-weight: 600;
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
-  color: #e2b774;
-  margin-bottom: 22px;
-}
-
-.image-wrapper {
+.bg-wrapper picture {
+  display: block;
   width: 100%;
+  height: 100%;
 }
 
-.image-wrapper img {
+.bg-img {
   width: 100%;
-  height: auto;
-  max-height: 520px;
+  height: 100%;
   object-fit: cover;
-  border-radius: 18px;
-  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.6);
+  object-position: center top; /* Desktop: Never cuts head off */
   display: block;
 }
 
-@media (max-width: 480px) {
-  .brand-name {
-    font-size: 1.8rem;
+/* Desktop: Dark gradient overlay on left for high contrast & clear text visibility */
+.bg-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    90deg,
+    rgba(8, 6, 5, 0.52) 0%,
+    rgba(8, 6, 5, 0.36) 32%,
+    rgba(8, 6, 5, 0.12) 58%,
+    transparent 78%
+  );
+  pointer-events: none;
+}
+
+/* ==========================================================================
+   CONTENT CONTAINER & TEXT ON LEFT WALL
+   ========================================================================== */
+
+.content-container {
+  position: relative;
+  z-index: 10;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-left: 9vw;
+  pointer-events: none;
+  user-select: none;
+}
+
+.brand-text-block {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  max-width: 48vw;
+  transform: translateY(-4vh);
+}
+
+/* 1. Signature Brand Name: Tia Linekar (Enlarged & High Contrast) */
+.brand-name {
+  font-family: 'Pinyon Script', cursive;
+  font-size: clamp(4.6rem, 7.2vw, 7.4rem);
+  font-weight: 400;
+  line-height: 1.05;
+  color: #dfbe90;
+  letter-spacing: 0.01em;
+  text-shadow: 
+    0 4px 25px rgba(0, 0, 0, 0.8), 
+    0 2px 6px rgba(0, 0, 0, 0.95);
+  margin-bottom: 12px;
+}
+
+/* 2. COMING SOON Heading (Enlarged & Spaced) */
+.coming-soon {
+  font-family: 'Cinzel', Georgia, serif;
+  font-size: clamp(1.35rem, 2.1vw, 2.15rem);
+  font-weight: 500;
+  letter-spacing: 0.4em;
+  color: #ffffff;
+  text-transform: uppercase;
+  text-shadow: 
+    0 4px 20px rgba(0, 0, 0, 0.85), 
+    0 2px 6px rgba(0, 0, 0, 0.95);
+  margin-bottom: 24px;
+  padding-left: 4px;
+}
+
+/* 3. TIMELESS STYLE. MODERN YOU. Tagline (Enlarged & Crisp) */
+.tagline-block {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding-left: 4px;
+}
+
+.tagline-line {
+  font-family: 'Montserrat', sans-serif;
+  font-size: clamp(0.85rem, 1.2vw, 1.15rem);
+  font-weight: 400;
+  letter-spacing: 0.35em;
+  line-height: 1.8;
+  color: #d8c7b4;
+  text-transform: uppercase;
+  text-shadow: 
+    0 3px 15px rgba(0, 0, 0, 0.85), 
+    0 2px 5px rgba(0, 0, 0, 0.95);
+}
+
+/* ==========================================================================
+   MOBILE & TABLET RESPONSIVE DESIGN (Using mobiles.png)
+   ========================================================================== */
+
+@media (max-width: 1024px) {
+  .brand-text-block {
+    max-width: 50vw;
   }
-  
-  .coming-soon-text {
-    font-size: 0.95rem;
+
+  .brand-name {
+    font-size: clamp(3.8rem, 6.5vw, 5.8rem);
+  }
+
+  .coming-soon {
+    font-size: clamp(1.15rem, 1.8vw, 1.75rem);
+  }
+
+  .tagline-line {
+    font-size: clamp(0.72rem, 1vw, 0.95rem);
+  }
+}
+
+@media (max-width: 768px) {
+  .bg-img {
+    object-position: center center; /* Portrait mobiles.png is centered */
+  }
+
+  /* Dark gradient overlay under text on tablet/mobile for high contrast */
+  .bg-overlay {
+    background: linear-gradient(
+      90deg,
+      rgba(8, 6, 5, 0.52) 0%,
+      rgba(8, 6, 5, 0.38) 32%,
+      rgba(8, 6, 5, 0.12) 55%,
+      transparent 75%
+    );
+  }
+
+  .content-container {
+    padding-left: 6.5vw;
+    padding-top: 15vh;
+    justify-content: flex-start;
+  }
+
+  .brand-text-block {
+    transform: translateY(0);
+    max-width: 52%;
+  }
+
+  .brand-name {
+    font-size: clamp(2.9rem, 10.5vw, 4.2rem);
+    margin-bottom: 8px;
+    text-shadow: 
+      0 4px 20px rgba(0, 0, 0, 0.85), 
+      0 2px 5px rgba(0, 0, 0, 0.95);
+  }
+
+  .coming-soon {
+    font-size: clamp(0.95rem, 3.5vw, 1.3rem);
+    letter-spacing: 0.32em;
     margin-bottom: 16px;
+    text-shadow: 
+      0 3px 15px rgba(0, 0, 0, 0.85), 
+      0 2px 5px rgba(0, 0, 0, 0.95);
+  }
+
+  .tagline-line {
+    font-size: clamp(0.62rem, 2.2vw, 0.78rem);
+    letter-spacing: 0.26em;
+    text-shadow: 
+      0 3px 12px rgba(0, 0, 0, 0.85), 
+      0 1px 4px rgba(0, 0, 0, 0.95);
+  }
+}
+
+@media (max-width: 480px) {
+  .bg-img {
+    object-position: center top;
+  }
+
+  /* Rich dark gradient under text area on mobile */
+  .bg-overlay {
+    background: linear-gradient(
+      90deg,
+      rgba(8, 6, 5, 0.58) 0%,
+      rgba(8, 6, 5, 0.42) 34%,
+      rgba(8, 6, 5, 0.14) 58%,
+      transparent 78%
+    );
+  }
+
+  .content-container {
+    padding-left: 6vw;
+    padding-top: 12vh;
+  }
+
+  .brand-text-block {
+    max-width: 50%;
+  }
+
+  .brand-name {
+    font-size: clamp(2.4rem, 10vw, 3.4rem);
+    margin-bottom: 6px;
+    text-shadow: 
+      0 4px 18px rgba(0, 0, 0, 0.9), 
+      0 2px 5px rgba(0, 0, 0, 0.95);
+  }
+
+  .coming-soon {
+    font-size: clamp(0.82rem, 3.2vw, 1.05rem);
+    letter-spacing: 0.28em;
+    margin-bottom: 12px;
+    text-shadow: 
+      0 3px 14px rgba(0, 0, 0, 0.9), 
+      0 2px 5px rgba(0, 0, 0, 0.95);
+  }
+
+  .tagline-line {
+    font-size: clamp(0.54rem, 2vw, 0.66rem);
+    letter-spacing: 0.22em;
+    line-height: 1.65;
+    text-shadow: 
+      0 2px 10px rgba(0, 0, 0, 0.9), 
+      0 1px 4px rgba(0, 0, 0, 0.95);
   }
 }

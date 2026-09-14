@@ -3,29 +3,38 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Tailineker | Coming Soon</title>
+  <title>Tia Linekar — COMING SOON</title>
   
-  <!-- Google Font -->
+  <!-- Exact Google Fonts matching reference design -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600&family=Pinyon+Script&display=swap" rel="stylesheet">
   
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
-  <div class="container">
-    <!-- Brand Name Above Image -->
-    <h1 class="brand-name">TAILINEKER</h1>
-    
-    <!-- Coming Soon Text Above Image -->
-    <p class="coming-soon-text">Coming Soon</p>
-
-    <!-- Centered Image -->
-    <div class="image-wrapper">
-      <img src="assets/images/lialine.jpeg" alt="Tailineker Coming Soon">
-    </div>
+  <!-- Fullscreen Responsive Background (Landscape for Desktop, Portrait mobiles.png for Mobile) -->
+  <div class="bg-wrapper">
+    <picture>
+      <source media="(max-width: 768px)" srcset="assets/images/mobiles.png">
+      <img src="assets/images/images.png" alt="Tia Linekar" class="bg-img" />
+    </picture>
+    <div class="bg-overlay" aria-hidden="true"></div>
   </div>
 
+  <!-- Main Content Overlay: Left Wall Typography -->
+  <main class="content-container">
+    <div class="brand-text-block">
+      <h1 class="brand-name">Tia Linekar</h1>
+      <p class="coming-soon">COMING SOON</p>
+      <div class="tagline-block">
+        <p class="tagline-line">TIMELESS STYLE.</p>
+        <p class="tagline-line">MODERN YOU.</p>
+      </div>
+    </div>
+  </main>
+
+  <script src="js/script.js"></script>
 </body>
 </html>
