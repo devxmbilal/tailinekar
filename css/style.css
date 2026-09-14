@@ -1,5 +1,5 @@
 /* ==========================================================================
-   TIA LINEKAR — FULLSCREEN RESPONSIVE EDITORIAL DESIGN
+   TIA lineker — SEAMLESS WARM TRAVERTINE FULLSCREEN EDITORIAL
    ========================================================================== */
 
 * {
@@ -8,129 +8,155 @@
   box-sizing: border-box;
 }
 
-html, body {
+html,
+body {
   width: 100%;
   height: 100%;
   overflow: hidden;
-  background-color: #15110e;
+  background-color: #765d47;
+  /* Exact matching warm walnut/camel wood tone */
   font-family: 'Montserrat', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 /* ==========================================================================
-   FULLSCREEN RESPONSIVE BACKGROUND IMAGE
+   SEAMLESS AMBIENT BACKDROP (Matches Image Colors 100% — No Black Edges)
    ========================================================================== */
 
-.bg-wrapper {
+.ambient-backdrop {
+  position: fixed;
+  inset: -30px;
+  background: url('../assets/images/images.png') center center / cover no-repeat;
+  filter: blur(28px) saturate(1.05);
+  opacity: 0.98;
+  z-index: 1;
+  pointer-events: none;
+  transform: scale(1.06);
+}
+
+/* ==========================================================================
+   MAIN STAGE: FULL UNCLIPPED IMAGE MERGED SEAMLESSLY
+   ========================================================================== */
+
+.main-stage {
   position: fixed;
   inset: 0;
   width: 100vw;
   height: 100vh;
-  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 5;
   overflow: hidden;
 }
 
-.bg-wrapper picture {
+.stage-frame {
+  position: relative;
+  height: 100vh;
+  max-width: 100vw;
+  aspect-ratio: 16 / 9;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: transparent;
+  box-shadow: none;
+  /* Removed all black edge shadows */
+  overflow: visible;
+}
+
+.stage-picture {
   display: block;
   width: 100%;
   height: 100%;
 }
 
-.bg-img {
+.stage-img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
-  object-position: center top; /* Desktop: Never cuts head off */
+  object-fit: contain;
+  /* Shows entire image top to bottom */
+  object-position: center center;
   display: block;
 }
 
-/* Desktop: Dark gradient overlay on left for high contrast & clear text visibility */
-.bg-overlay {
+/* Very subtle natural shadow under text only - preserves warm wood color */
+.stage-overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(
-    90deg,
-    rgba(8, 6, 5, 0.52) 0%,
-    rgba(8, 6, 5, 0.36) 32%,
-    rgba(8, 6, 5, 0.12) 58%,
-    transparent 78%
-  );
+  background: linear-gradient(90deg,
+      rgba(25, 18, 14, 0.32) 0%,
+      rgba(25, 18, 14, 0.18) 32%,
+      rgba(25, 18, 14, 0.04) 55%,
+      transparent 75%);
   pointer-events: none;
+  z-index: 8;
 }
 
 /* ==========================================================================
-   CONTENT CONTAINER & TEXT ON LEFT WALL
+   TEXT OVERLAY: ANCHORED EXACTLY ON LEFT WALL
    ========================================================================== */
 
-.content-container {
-  position: relative;
+.text-overlay {
+  position: absolute;
+  top: 22%;
+  left: 8.5%;
   z-index: 10;
-  width: 100vw;
-  height: 100vh;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  padding-left: 9vw;
+  align-items: flex-start;
+  max-width: 46%;
   pointer-events: none;
   user-select: none;
 }
 
-.brand-text-block {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  max-width: 48vw;
-  transform: translateY(-4vh);
-}
-
-/* 1. Signature Brand Name: Tia Linekar (Enlarged & High Contrast) */
+/* 1. Signature Brand Name: Tia lineker */
 .brand-name {
   font-family: 'Pinyon Script', cursive;
-  font-size: clamp(4.6rem, 7.2vw, 7.4rem);
+  font-size: clamp(4.4rem, 6.8vw, 7.2rem);
   font-weight: 400;
   line-height: 1.05;
   color: #dfbe90;
   letter-spacing: 0.01em;
-  text-shadow: 
-    0 4px 25px rgba(0, 0, 0, 0.8), 
-    0 2px 6px rgba(0, 0, 0, 0.95);
+  text-shadow:
+    0 4px 22px rgba(0, 0, 0, 0.8),
+    0 2px 5px rgba(0, 0, 0, 0.95);
   margin-bottom: 12px;
 }
 
-/* 2. COMING SOON Heading (Enlarged & Spaced) */
+/* 2. COMING SOON Heading */
 .coming-soon {
   font-family: 'Cinzel', Georgia, serif;
-  font-size: clamp(1.35rem, 2.1vw, 2.15rem);
+  font-size: clamp(1.25rem, 1.95vw, 2.1rem);
   font-weight: 500;
   letter-spacing: 0.4em;
   color: #ffffff;
   text-transform: uppercase;
-  text-shadow: 
-    0 4px 20px rgba(0, 0, 0, 0.85), 
-    0 2px 6px rgba(0, 0, 0, 0.95);
-  margin-bottom: 24px;
+  text-shadow:
+    0 4px 18px rgba(0, 0, 0, 0.8),
+    0 2px 5px rgba(0, 0, 0, 0.95);
+  margin-bottom: 22px;
   padding-left: 4px;
 }
 
-/* 3. TIMELESS STYLE. MODERN YOU. Tagline (Enlarged & Crisp) */
+/* 3. TIMELESS STYLE. MODERN YOU. Tagline */
 .tagline-block {
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 7px;
   padding-left: 4px;
 }
 
 .tagline-line {
   font-family: 'Montserrat', sans-serif;
-  font-size: clamp(0.85rem, 1.2vw, 1.15rem);
+  font-size: clamp(0.78rem, 1.1vw, 1.1rem);
   font-weight: 400;
   letter-spacing: 0.35em;
   line-height: 1.8;
   color: #d8c7b4;
   text-transform: uppercase;
-  text-shadow: 
-    0 3px 15px rgba(0, 0, 0, 0.85), 
+  text-shadow:
+    0 3px 14px rgba(0, 0, 0, 0.8),
     0 2px 5px rgba(0, 0, 0, 0.95);
 }
 
@@ -138,125 +164,89 @@ html, body {
    MOBILE & TABLET RESPONSIVE DESIGN (Using mobiles.png)
    ========================================================================== */
 
-@media (max-width: 1024px) {
-  .brand-text-block {
-    max-width: 50vw;
-  }
-
-  .brand-name {
-    font-size: clamp(3.8rem, 6.5vw, 5.8rem);
-  }
-
-  .coming-soon {
-    font-size: clamp(1.15rem, 1.8vw, 1.75rem);
-  }
-
-  .tagline-line {
-    font-size: clamp(0.72rem, 1vw, 0.95rem);
-  }
-}
-
 @media (max-width: 768px) {
-  .bg-img {
-    object-position: center center; /* Portrait mobiles.png is centered */
+
+  html,
+  body {
+    background-color: #6d543e;
   }
 
-  /* Dark gradient overlay under text on tablet/mobile for high contrast */
-  .bg-overlay {
-    background: linear-gradient(
-      90deg,
-      rgba(8, 6, 5, 0.52) 0%,
-      rgba(8, 6, 5, 0.38) 32%,
-      rgba(8, 6, 5, 0.12) 55%,
-      transparent 75%
-    );
+  .ambient-backdrop {
+    background-image: url('../assets/images/mobiles.png');
+    filter: blur(20px);
   }
 
-  .content-container {
-    padding-left: 6.5vw;
-    padding-top: 15vh;
-    justify-content: flex-start;
+  .stage-frame {
+    width: 100vw;
+    height: 100vh;
+    max-height: none;
+    aspect-ratio: auto;
+    box-shadow: none;
   }
 
-  .brand-text-block {
-    transform: translateY(0);
-    max-width: 52%;
+  .stage-img {
+    object-fit: cover;
+    object-position: center top;
+  }
+
+  .stage-overlay {
+    background: linear-gradient(90deg,
+        rgba(20, 14, 10, 0.45) 0%,
+        rgba(20, 14, 10, 0.25) 35%,
+        transparent 72%);
+  }
+
+  .text-overlay {
+    top: 14%;
+    left: 6.5%;
+    max-width: 53%;
   }
 
   .brand-name {
-    font-size: clamp(2.9rem, 10.5vw, 4.2rem);
+    font-size: clamp(3.2rem, 11.5vw, 4.4rem);
     margin-bottom: 8px;
-    text-shadow: 
-      0 4px 20px rgba(0, 0, 0, 0.85), 
-      0 2px 5px rgba(0, 0, 0, 0.95);
   }
 
   .coming-soon {
-    font-size: clamp(0.95rem, 3.5vw, 1.3rem);
+    font-size: clamp(1rem, 3.8vw, 1.35rem);
     letter-spacing: 0.32em;
-    margin-bottom: 16px;
-    text-shadow: 
-      0 3px 15px rgba(0, 0, 0, 0.85), 
-      0 2px 5px rgba(0, 0, 0, 0.95);
+    margin-bottom: 14px;
   }
 
   .tagline-line {
-    font-size: clamp(0.62rem, 2.2vw, 0.78rem);
+    font-size: clamp(0.66rem, 2.3vw, 0.82rem);
     letter-spacing: 0.26em;
-    text-shadow: 
-      0 3px 12px rgba(0, 0, 0, 0.85), 
-      0 1px 4px rgba(0, 0, 0, 0.95);
   }
 }
 
 @media (max-width: 480px) {
-  .bg-img {
-    object-position: center top;
+  .stage-overlay {
+    background: linear-gradient(90deg,
+        rgba(20, 14, 10, 0.48) 0%,
+        rgba(20, 14, 10, 0.28) 36%,
+        transparent 75%);
   }
 
-  /* Rich dark gradient under text area on mobile */
-  .bg-overlay {
-    background: linear-gradient(
-      90deg,
-      rgba(8, 6, 5, 0.58) 0%,
-      rgba(8, 6, 5, 0.42) 34%,
-      rgba(8, 6, 5, 0.14) 58%,
-      transparent 78%
-    );
-  }
-
-  .content-container {
-    padding-left: 6vw;
-    padding-top: 12vh;
-  }
-
-  .brand-text-block {
-    max-width: 50%;
+  .text-overlay {
+    top: 12%;
+    left: 6vw;
+    max-width: 53%;
   }
 
   .brand-name {
-    font-size: clamp(2.4rem, 10vw, 3.4rem);
+    font-size: clamp(2.8rem, 11vw, 3.8rem);
     margin-bottom: 6px;
-    text-shadow: 
-      0 4px 18px rgba(0, 0, 0, 0.9), 
-      0 2px 5px rgba(0, 0, 0, 0.95);
   }
 
   .coming-soon {
-    font-size: clamp(0.82rem, 3.2vw, 1.05rem);
+    font-size: clamp(0.95rem, 3.6vw, 1.2rem);
     letter-spacing: 0.28em;
     margin-bottom: 12px;
-    text-shadow: 
-      0 3px 14px rgba(0, 0, 0, 0.9), 
-      0 2px 5px rgba(0, 0, 0, 0.95);
   }
 
   .tagline-line {
-    font-size: clamp(0.54rem, 2vw, 0.66rem);
+    font-size: clamp(0.6rem, 2.3vw, 0.74rem);
     letter-spacing: 0.22em;
     line-height: 1.65;
-    text-shadow: 
-      0 2px 10px rgba(0, 0, 0, 0.9), 
-      0 1px 4px rgba(0, 0, 0, 0.95);
   }
 }

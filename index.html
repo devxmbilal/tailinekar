@@ -1,40 +1,53 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Tia Linekar — COMING SOON</title>
-  
+  <title>Tia lineker — COMING SOON</title>
+
   <!-- Exact Google Fonts matching reference design -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600&family=Pinyon+Script&display=swap" rel="stylesheet">
-  
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600&family=Pinyon+Script&display=swap"
+    rel="stylesheet">
+
   <link rel="stylesheet" href="css/style.css">
 </head>
+
 <body>
 
-  <!-- Fullscreen Responsive Background (Landscape for Desktop, Portrait mobiles.png for Mobile) -->
-  <div class="bg-wrapper">
-    <picture>
-      <source media="(max-width: 768px)" srcset="assets/images/mobiles.png">
-      <img src="assets/images/images.png" alt="Tia Linekar" class="bg-img" />
-    </picture>
-    <div class="bg-overlay" aria-hidden="true"></div>
-  </div>
+  <!-- Ambient Blurred Background Backdrop -->
+  <div class="ambient-backdrop" aria-hidden="true"></div>
 
-  <!-- Main Content Overlay: Left Wall Typography -->
-  <main class="content-container">
-    <div class="brand-text-block">
-      <h1 class="brand-name">Tia Linekar</h1>
-      <p class="coming-soon">COMING SOON</p>
-      <div class="tagline-block">
-        <p class="tagline-line">TIMELESS STYLE.</p>
-        <p class="tagline-line">MODERN YOU.</p>
+  <!-- Main Stage: Holds Full Image & Anchored Text Overlay -->
+  <main class="main-stage">
+    <div class="stage-frame">
+
+      <!-- Responsive Picture: Landscape for Desktop (Full View), Portrait for Mobile -->
+      <picture class="stage-picture">
+        <source media="(max-width: 768px)" srcset="assets/images/mobiles.png">
+        <img src="assets/images/images.png" alt="Tia lineker — Coming Soon" class="stage-img" />
+      </picture>
+
+      <!-- Soft Contrast Overlay under Text -->
+      <div class="stage-overlay" aria-hidden="true"></div>
+
+      <!-- Text Overlay Anchored Directly to Left Wall of Image -->
+      <div class="text-overlay">
+        <h1 class="brand-name">Tia lineker</h1>
+        <p class="coming-soon">COMING SOON</p>
+        <div class="tagline-block">
+          <p class="tagline-line">TIMELESS STYLE.</p>
+          <p class="tagline-line">MODERN YOU.</p>
+        </div>
       </div>
+
     </div>
   </main>
 
   <script src="js/script.js"></script>
 </body>
+
 </html>
